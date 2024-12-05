@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dm-sans{
+    font-family: "DM Sans", sans-serif;
+}
+
+.activeNav{
+    @apply relative flex items-center before:content-[''] before:w-2 before:h-2 before:rounded-full before:bg-p1 before:mr-2
+}
+
+.container {
+    @apply mx-auto max-w-[1400px] px-16 max-xl:px-10 max-lg:px-6 max-sm:px-2;
+}
+
+.btn1{
+    @apply px-5 py-2 bg-p1 hover:bg-p2 duration-500 font-semibold tracking-wider
+}
