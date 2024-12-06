@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Htitle from "../components/Htitle";
 import Navbar from "../components/Navbar";
 import HeroSection from "../sections/HeroSection";
@@ -26,7 +27,7 @@ const Home = () => {
             {/* Newsletter Section */}
 
             {/* Footer */}
-
+            <Footer />
 
 
         </div>

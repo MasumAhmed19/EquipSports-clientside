@@ -46,7 +46,7 @@ const AllSportsEquipments = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {equipments.map((el, idx) => (
+              {equipments && equipments.map((el, idx) => (
                     <EquipCard
                     key={el?._id}
                     el={el}
