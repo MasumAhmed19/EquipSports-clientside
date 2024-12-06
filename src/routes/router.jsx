@@ -13,7 +13,8 @@ const router= createBrowserRouter([
         element:<Home />
     },{
         path:'/all-sports-equipment',
-        element:<AllSportsEquipments />
+        element:<AllSportsEquipments />,
+        loader:()=>fetch('http://localhost:8080/equipments'),
     },{
         path:'/add-equipment',
         element:<AddEquipments />

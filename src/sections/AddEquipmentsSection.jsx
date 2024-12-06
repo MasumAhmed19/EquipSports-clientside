@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const categories = [
   'Football',
@@ -25,6 +26,8 @@ const AddEquipmentsSection = () => {
     const pTime= form.pTime.value;
     const imgurl= form.imgurl.value;
     const description= form.description.value;
+    const userName= form.userName.value;
+    const userEmail= form.userEmail.value;
 
     const formdata = {
         name:name,
@@ -35,15 +38,30 @@ const AddEquipmentsSection = () => {
         pTime:pTime,
         imgurl:imgurl,
         description:description,
+        userName:userName,
+        userEmail:userEmail,
+
     }
 
-    // TOD O: Send data to backend
     console.log(formdata)
+    
+    // TODO: Send data to backend
+    fetch('http://localhost:8080/equipments', {
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify(formdata)
+    }) 
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      if(data.insertedId){
+          Swal.fire("Add Equipment successful!");
+          form.reset();
+      }
+    })
 
-      
-    // Assuming you'll implement your own success handling here
-    // alert('Equipment added successfully!');
-    // e.reset();
     
   };
 
@@ -174,6 +192,40 @@ const AddEquipmentsSection = () => {
                 className="input1 border border-dashed"
                 placeholder="Detailed description of the equipment..."
               />
+            </div>
+              
+            <div className='py-[20px]'>
+              <h2 className='text-2xl font-semibold'>User Info</h2>
+              <div className='border border-dashed'></div>
+            </div>
+
+            {/* user information */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+            <div className="space-y-2">
+                <label htmlFor="userName" className="block text-sm font-medium text-gray-700">
+                  User Name
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  // readOnly
+                  placeholder="Masum Ahmed"
+                  className="input1"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="userEmail" className="block text-sm font-medium text-gray-700">
+                  User Email
+                </label>
+                <input
+                  type="email"
+                  name="userEmail"
+                  // readOnly
+                  placeholder="user@example.com"
+                  className="input1"
+                />
+              </div>
             </div>
 
             <div>

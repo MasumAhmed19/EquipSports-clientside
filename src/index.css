@@ -23,3 +23,22 @@
 .input1{
     @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:outline-p2 sm:text-sm p-2
 }
+
+
+/* Gradient */
+
+.g1 {
+    background: linear-gradient(to right, transparent, #effcc8, transparent);
+}
+
+.g2 {
+    background: linear-gradient(to right, #effcc8, transparent, #effcc8);
+}
+
+.g3 {
+    background: linear-gradient(#effcc8, transparent);
+}
+
+.g4 {
+    background:  radial-gradient(#effcc8, transparent)
+}

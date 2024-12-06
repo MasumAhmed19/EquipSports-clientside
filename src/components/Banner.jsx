@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Htitle from "./Htitle";
 
 const Banner = ({title, description, buttonText, imageSrc }) => {
     return (
@@ -7,7 +8,9 @@ const Banner = ({title, description, buttonText, imageSrc }) => {
             <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[400px] p-5 md:py-10">
               <div className="flex  flex-col gap-5">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                  {title}
+                  <Htitle>
+                    {title}
+                  </Htitle>
                 </h1>
                 {description && (
                   <p className="">
