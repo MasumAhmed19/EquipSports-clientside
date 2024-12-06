@@ -2,11 +2,12 @@ import { useLoaderData } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import EquipCard from "../components/EquipCard";
-import { MdDelete } from "react-icons/md";
-import { FaEdit, FaEye } from "react-icons/fa";
+import { useState } from "react";
 
 const AllSportsEquipments = () => {
-  const equipmentsData = useLoaderData();
+  const eData = useLoaderData();
+
+  const [equipments, setEquipments]= useState(eData);
 
   return (
     <div>
@@ -24,7 +25,7 @@ const AllSportsEquipments = () => {
       </section>
 
       <section className="container mx-auto py-[50px]">
-        <h2 className="p-5">All Sports Equipments: {equipmentsData.length}</h2>
+        <h2 className="p-5">All Sports Equipments: {equipments.length}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-5">
           
@@ -45,11 +46,13 @@ const AllSportsEquipments = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {equipmentsData.map((el, idx) => (
+              {equipments.map((el, idx) => (
                     <EquipCard
-                    key={el._id}
+                    key={el?._id}
                     el={el}
                     idx={idx}
+                    equipments={equipments}
+                    setEquipments={setEquipments}
                     />
                 ))}
               
