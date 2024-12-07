@@ -1,7 +1,7 @@
 import { useState } from 'react'; 
 import Swal from 'sweetalert2'; 
 import Navbar from '../components/Navbar'; 
-import { useLoaderData, useParams } from 'react-router-dom'; 
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom'; 
 import Footer from '../components/Footer';
  
 const categories = [ 
@@ -14,6 +14,7 @@ const categories = [
 ]; 
  
 const UpdateEquipments = () => { 
+  const navigate= useNavigate();
   const [loading, setLoading] = useState(false); 
   const { id } = useParams(); 
   const singleData = useLoaderData(); 
@@ -39,14 +40,13 @@ const UpdateEquipments = () => {
     .then(res=>res.json())
     .then(data=>{
         Swal.fire("data updated")
+        navigate('/all-sports-equipment');
     })
   }; 
  
   return ( 
     <section> 
-      <div className="container mx-auto"> 
-        <Navbar /> 
-      </div> 
+      <Navbar /> 
  
       <div className="container mx-auto p-10"> 
         <div className="bg-white shadow-md rounded-lg p-6 md:p-8"> 

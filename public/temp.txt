@@ -18,3 +18,95 @@ https://i.ibb.co.com/88fyqdW/Humaaan-5.png
 
 user profile
 https://i.ibb.co.com/jJmZXB1/IMG-20231025-120729-726.jpg
+
+
+
+Item Name: Professional Tennis Racket
+Price ($): 129.99
+Stock Quantity: 50
+Image (Direct link): https://example.com/tennis-racket.jpg
+Category: Sports Equipment
+Rating (1–5): 4.8
+Processing Time (days): 2
+Description: Lightweight and durable tennis racket ideal for professionals.
+
+Item Name: High-Performance Soccer Ball
+Price ($): 39.99
+Stock Quantity: 150
+Image (Direct link): https://example.com/soccer-ball.jpg
+Category: Sports Equipment
+Rating (1–5): 4.5
+Processing Time (days): 1
+Description: Premium-grade soccer ball for all weather conditions.
+
+Item Name: Adjustable Dumbbells (Pair)
+Price ($): 199.99
+Stock Quantity: 75
+Image (Direct link): https://example.com/dumbbells.jpg
+Category: Fitness
+Rating (1–5): 4.7
+Processing Time (days): 3
+Description: Space-saving dumbbells with adjustable weights.
+
+Item Name: Yoga Mat with Carry Strap
+Price ($): 25.00
+Stock Quantity: 200
+Image (Direct link): https://i.ibb.co.com/jL8XK63/Green-Yoga-Mat-Sling-and-Strap.jpg
+Category: Fitness
+Rating (1–5): 4.9
+Processing Time (days): 2
+Description: Extra-thick, non-slip yoga mat for comfort and stability.
+
+Item Name: Mountain Bike Helmet
+Price ($): 89.99
+Stock Quantity: 120
+Image (Direct link): https://i.ibb.co.com/yNCKsWr/Mountain-Bike-Helmet.jpg
+Category: Cycling
+Rating (1–5): 4.6
+Processing Time (days): 4
+Description: Durable helmet with excellent ventilation and a modern design.
+
+Item Name: Table Tennis Paddle Set
+Price ($): 49.99
+Stock Quantity: 90
+Image (Direct link): https://i.ibb.co.com/ZTRm2PG/Table-Tennis-Paddle-Sets.jpg
+Category: Sports Equipment
+Rating (1–5): 4.4
+Processing Time (days): 2
+Description: High-quality paddles for beginners and professionals.
+
+Item Name: Premium Basketball Hoop
+Price ($): 299.99
+Stock Quantity: 40
+Image (Direct link): https://i.ibb.co.com/qxBJDcP/Premium-Basketball-Hoop.jpg
+Category: Sports Equipment
+Rating (1–5): 4.9
+Processing Time (days): 5
+Description: Adjustable basketball hoop system with sturdy construction.
+
+Item Name: Golf Club Set (Men’s)
+Price ($): 349.99
+Stock Quantity: 30
+Image (Direct link): https://i.ibb.co.com/N6RcxLq/Golf-Club-Set-Men-s.jpg
+Category: Sports Equipment
+Rating (1–5): 4.7
+Processing Time (days): 6
+Description: Comprehensive golf club set for men with carry bag.
+
+Item Name: Resistance Bands (Set of 5)
+Price ($): 20.00
+Stock Quantity: 250
+Image (Direct link): https://i.ibb.co.com/XzGK0Y4/Resistance-Band.jpg
+Category: Fitness
+Rating (1–5): 4.3
+Processing Time (days): 2
+Description: Versatile resistance bands for strength and flexibility training.
+
+Item Name: High-Performance Rowing Machine
+Price ($): 899.99
+Stock Quantity: 15
+Image (Direct link): https://i.ibb.co.com/V9zWsYG/High-Performance-Rowing-Machine.jpg
+Category: Fitness
+Rating (1–5): 4.9
+Processing Time (days): 7
+Description: Smooth and quiet rowing machine for full-body workouts.

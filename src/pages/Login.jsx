@@ -1,14 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
-  const { user, setUser, userLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const {user, setUser, userLogin } = useContext(AuthContext);
   const [error, setError] = useState({});
 
   const [showPassword, setShowPassword] = useState(false);
@@ -25,6 +26,7 @@ const Login = () => {
     console.log("Login:", { email, password });
     userLogin(email, password)
       .then((res) => {
+        navigate('/');
         setUser(res.user);
         // TODO: alert for successful login
       })

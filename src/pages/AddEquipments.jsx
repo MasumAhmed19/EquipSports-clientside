@@ -1,13 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
 import AddEquipmentsSection from "../sections/AddEquipmentsSection";
+import Footer from "../components/Footer";
 
 const AddEquipments = () => {
     return (
-        <div>
-            <section className="container mx-auto">
-                <Navbar />
-            </section>
+        <>
+            <Helmet><title>Add new equipment - EquipSports</title></Helmet>
+            <Navbar />
 
             {/* Banner */}
             {/* <Banner 
@@ -22,9 +23,9 @@ const AddEquipments = () => {
                 <AddEquipmentsSection />
             </section>
 
+            <Footer />
 
-
-        </div>
+        </>
     );
 };
 

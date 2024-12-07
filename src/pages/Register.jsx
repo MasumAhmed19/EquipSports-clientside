@@ -52,7 +52,7 @@ const Register = () => {
         })
           .then(() => {
             console.log("User profile updated");
-            navigate("/login");
+            navigate("/");
           })
           .catch((err) => {
             alert(err.message);
@@ -70,9 +70,7 @@ const Register = () => {
       <Helmet>
         <title>Register - EquiSports</title>
       </Helmet>
-      <section className="container mx-auto">
-        <Navbar />
-      </section>
+      <Navbar />
 
       <div className="py-[50px] min-h-screen flex flex-col items-center">
         <div className="flex gap-5 items-center justify-center py-4">

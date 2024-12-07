@@ -45,7 +45,7 @@ const Navbar = () => {
 
       <li className="text-black hover:text-p1 duration-500 ">
         <NavLink
-          to="/my-equipments"
+          to={`/my-equipments/${user?.email}`}
           className={({ isActive }) =>
             isActive ? "activeNav" : "flex items-center"
           }
@@ -57,110 +57,114 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 py-[25px]">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost lg:hidden"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            {link}
-          </ul>
-        </div>
-        <div className="">
-          <Link
-            to="/"
-            className="flex items-center gap-2"
-          >
-            <RiShoppingBag2Fill className="text-2xl text-p1" />{" "}
-            <h4 className="text-xl font-semibold">EquiSports</h4>
-          </Link>
-        </div>
-      </div>
-
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu-horizontal space-x-10  px-1">{link}</ul>
-      </div>
-
-      <div className="navbar-end space-x-2">
-        <MdOutlineLightMode className="cursor-pointer" />
-        <div className="flex gap-2 items-center justify-center py-4">
-          {user ? (
-            <>
+    <section className="g3">
+      <div className="container mx-auto">
+        <div className="navbar py-[25px]">
+          <div className="navbar-start">
+            <div className="dropdown">
               <div
-                className="tooltip hover:tooltip-open tooltip-left"
-                data-tip={user?.displayName}
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost lg:hidden"
               >
-                {user && user?.email ? (
-                  <img
-                    src={user?.photoURL}
-                    className="w-[40px] h-[40px] object-cover border-2 border-[#BDED4F] rounded-full"
-                    alt="profile image"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
                   />
-                ) : (
-                  <FaUserAlt className="text-md text-[#BDED4F]" />
-                )}
+                </svg>
               </div>
-              {user && <h2>{user.displayName}</h2>}
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                {link}
+              </ul>
+            </div>
+            <div className="">
+              <Link
+                to="/"
+                className="flex items-center gap-2"
+              >
+                <RiShoppingBag2Fill className="text-2xl text-p1" />{" "}
+                <h4 className="text-xl font-semibold">EquiSports</h4>
+              </Link>
+            </div>
+          </div>
 
-              <NavLink
-                onClick={() => logOut()}
-                className={({ isActive }) =>
-                  `${
-                    isActive ? "underline underline-offset-4 decoration-p2" : ""
-                  }`
-                }
-              >
-                Logout
-              </NavLink>
-            </>
-          ) : (
-            <>
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  `${
-                    isActive ? "underline underline-offset-4 decoration-p2" : ""
-                  }`
-                }
-              >
-                Login
-              </NavLink>
-              <NavLink
-                to="/register"
-                className={({ isActive }) =>
-                  `${
-                    isActive ? "underline underline-offset-4 decoration-p2" : ""
-                  }`
-                }
-              >
-                Register
-              </NavLink>
-            </>
-          )}
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu-horizontal space-x-10  px-1">{link}</ul>
+          </div>
+
+          <div className="navbar-end space-x-2">
+            <MdOutlineLightMode className="cursor-pointer" />
+            <div className="flex gap-2 items-center justify-center py-4">
+              {user ? (
+                <>
+                  <div
+                    className="tooltip hover:tooltip-open tooltip-left"
+                    data-tip={user?.displayName}
+                  >
+                    {user && user?.email ? (
+                      <img
+                        src={user?.photoURL}
+                        className="w-[40px] h-[40px] object-cover border-2 border-[#BDED4F] rounded-full"
+                        alt="profile image"
+                      />
+                    ) : (
+                      <FaUserAlt className="text-md text-[#BDED4F]" />
+                    )}
+                  </div>
+                  {/* {user && <h2>{user.displayName}</h2>} */}
+
+                  <NavLink
+                    onClick={() => logOut()}
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "underline underline-offset-4 decoration-p2" : ""
+                      }`
+                    }
+                  >
+                    Logout
+                  </NavLink>
+                </>
+              ) : (
+                <>
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "underline underline-offset-4 decoration-p2" : ""
+                      }`
+                    }
+                  >
+                    Login
+                  </NavLink>
+                  <NavLink
+                    to="/register"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "underline underline-offset-4 decoration-p2" : ""
+                      }`
+                    }
+                  >
+                    Register
+                  </NavLink>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

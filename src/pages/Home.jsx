@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer";
 import Htitle from "../components/Htitle";
 import Navbar from "../components/Navbar";
@@ -5,11 +6,10 @@ import HeroSection from "../sections/HeroSection";
 
 const Home = () => {
     return (
-        <div>
+        <>
+            <Helmet><title>Home - EquipSports</title></Helmet>
             {/* Header */}
-            <section className="container mx-auto">
                 <Navbar />
-            </section>
 
             {/* Hero Section */}
             <section className="container mx-auto min-h-[90vh] py-[20px] md:py-[60px] flex items-center ">
@@ -30,7 +30,7 @@ const Home = () => {
             <Footer />
 
 
-        </div>
+        </>
     );
 };
 

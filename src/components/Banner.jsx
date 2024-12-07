@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Htitle from "./Htitle";
 
-const Banner = ({title, description, buttonText, imageSrc }) => {
+const Banner = ({title, description, buttonText, imageSrc, to='/' }) => {
     return (
         <div className="relative">
           <section className="container mx-auto ">
@@ -18,7 +18,7 @@ const Banner = ({title, description, buttonText, imageSrc }) => {
                   </p>
                 )}
                 {buttonText && (
-                    <Link to='/my-equipments'>
+                    <Link to={`${to}`}>
                         <button className="btn1">{buttonText}</button>
                     </Link>
                 )}

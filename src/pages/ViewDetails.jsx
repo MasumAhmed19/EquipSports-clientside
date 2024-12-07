@@ -4,9 +4,7 @@ import Navbar from "../components/Navbar";
 const ViewDetails = () => {
     return (
         <div>
-            <section className="container mx-auto">
-                <Navbar />
-            </section>
+            <Navbar />
             <h2>View Details</h2>
 
             <Footer />

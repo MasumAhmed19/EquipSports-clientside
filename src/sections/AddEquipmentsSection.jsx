@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
 
 const categories = [
   'Football',
@@ -12,6 +13,8 @@ const categories = [
 
 const AddEquipmentsSection = () => {
   const [loading, setLoading] = useState(false);
+  const {user} = useContext(AuthContext);
+
 
   const handleSubmit =  (e) => {
     e.preventDefault();
@@ -26,8 +29,9 @@ const AddEquipmentsSection = () => {
     const pTime= form.pTime.value;
     const imgurl= form.imgurl.value;
     const description= form.description.value;
-    const userName= form.userName.value;
-    const userEmail= form.userEmail.value;
+    const userName= user.displayName;
+    const userEmail= user.email;
+
 
     const formdata = {
         name:name,
@@ -209,9 +213,9 @@ const AddEquipmentsSection = () => {
                 <input
                   type="text"
                   name="userName"
-                  // readOnly
-                  placeholder="Masum Ahmed"
-                  className="input1"
+                  readOnly
+                  value={`${user?.displayName || "userName"} `}
+                  className="input2"
                 />
               </div>
               <div className="space-y-2">
@@ -221,9 +225,9 @@ const AddEquipmentsSection = () => {
                 <input
                   type="email"
                   name="userEmail"
-                  // readOnly
-                  placeholder="user@example.com"
-                  className="input1"
+                  readOnly
+                  value={`${user?.email || "user@example.com"} `}
+                  className="input2"
                 />
               </div>
             </div>

@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import EquipCard from "../components/EquipCard";
 import { useState } from "react";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const AllSportsEquipments = () => {
   const eData = useLoaderData();
@@ -11,10 +12,9 @@ const AllSportsEquipments = () => {
   const [equipments, setEquipments]= useState(eData);
 
   return (
-    <div>
-      <section className="container mx-auto">
-        <Navbar />
-      </section>
+    <>
+      <Helmet><title>All sports equipments - EquipSports</title></Helmet>
+      <Navbar />
 
       <section className=" min-h-[60vh] flex items-center justify-center">
         <Banner
@@ -22,47 +22,51 @@ const AllSportsEquipments = () => {
           description="Upload the equipment image, provide its name, select a category, set the price, rating, stock, and processing time. Add a description and customization options."
           buttonText="My Equipments"
           imageSrc="https://i.ibb.co.com/zHj7XdB/Imagess-1.jpg"
+          to="/my-equipments"
         />
       </section>
 
       <section className="container mx-auto py-[50px]">
+
         <h2 className="p-5">All Sports Equipments: {equipments.length}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-5">
           
         </div>
-
-        <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Rating</th>
-                <th>Price</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* row 1 */}
-              {equipments && equipments.map((el, idx) => (
-                    <EquipCard
-                    key={el?._id}
-                    el={el}
-                    idx={idx}
-                    equipments={equipments}
-                    setEquipments={setEquipments}
-                    />
-                ))}
-              
-            </tbody>
-          </table>
-        </div>
+        {
+          equipments && (<div className="overflow-x-auto">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Rating</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* row 1 */}
+                {equipments && equipments.map((el, idx) => (
+                      <EquipCard
+                      key={el?._id}
+                      el={el}
+                      idx={idx}
+                      equipments={equipments}
+                      setEquipments={setEquipments}
+                      />
+                  ))}
+                
+              </tbody>
+            </table>
+          </div>)
+        }
+        
       </section>
       <Footer />
-    </div>
+    </>
   );
 };
 
