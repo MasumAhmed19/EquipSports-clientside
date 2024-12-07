@@ -54,3 +54,12 @@
 .g5 {
     background: linear-gradient(transparent, #effcc8);
 }
+
+
+.img1{
+    @apply transition duration-500 ease-in-out group-hover:grayscale group-hover:scale-110 w-full h-full object-cover
+}
+
+.slick-slide > div {
+    margin: 0 20px;
+}

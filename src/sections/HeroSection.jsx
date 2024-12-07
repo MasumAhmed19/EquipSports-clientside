@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HeroSection = () => {
   return (
     <div className="flex flex-col gap-10 p-4">
@@ -21,7 +23,9 @@ const HeroSection = () => {
             discipline.
           </p>
           <div>
-            <button className="btn1">Shop Now</button>
+            <Link to='/all-sports-equipment'>
+              <button className="btn1">Shop Now</button>
+            </Link>
           </div>
           <img
             src="https://i.ibb.co.com/GWH555w/Image-1.jpg"
