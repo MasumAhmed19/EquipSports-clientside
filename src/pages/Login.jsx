@@ -4,9 +4,13 @@ import Navbar from "../components/Navbar";
 import { NavLink } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
+  const { user, setUser, userLogin } = useContext(AuthContext);
+  const [error, setError] = useState({});
+
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +23,15 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login:", { email, password });
+    userLogin(email, password)
+      .then((res) => {
+        setUser(res.user);
+        // TODO: alert for successful login
+      })
+      .catch((err) => {
+        setError({ ...error, login: err.code });
+        alert(err);
+      });
   };
 
   return (
@@ -32,15 +45,32 @@ const Login = () => {
       </section>
 
       <div className="py-[50px] min-h-screen flex flex-col items-center">
-      <div className="flex gap-5 items-center justify-center py-4">
-            <NavLink to='/login' className={({isActive})=> `btn2 ${isActive ? 'bg-p1': 'bg-gray-200'}`}>Login</NavLink>
-            <NavLink to='/register' className={({isActive})=> `btn2 ${isActive ? 'bg-p1': 'bg-gray-200'}`}>Register</NavLink>
-      </div>
+        <div className="flex gap-5 items-center justify-center py-4">
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              `btn2 ${isActive ? "bg-p1" : "bg-gray-200"}`
+            }
+          >
+            Login
+          </NavLink>
+          <NavLink
+            to="/register"
+            className={({ isActive }) =>
+              `btn2 ${isActive ? "bg-p1" : "bg-gray-200"}`
+            }
+          >
+            Register
+          </NavLink>
+        </div>
 
-        <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-[50px]">
           {/* Login Form */}
           <div className="w-full bg-white shadow-xl rounded-lg p-8 text-gray-900 order-2 md:order-1">
-            <form onSubmit={handleSubmit} className="space-y-6 text-sm md:text-base">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 text-sm md:text-base"
+            >
               <div className="form-control">
                 <input
                   name="email"
@@ -86,14 +116,14 @@ const Login = () => {
             </div>
           </div>
 
-            {/* Image Section */}
-            <div className="flex justify-center order-1 md:order-2">
-                <img
-                className="h-[60vh] rounded-xl"
-                src="https://i.ibb.co.com/f28Z5nf/Humaaan-4.png"
-                alt="Hero"
-                />
-            </div>
+          {/* Image Section */}
+          <div className="flex justify-center order-1 md:order-2">
+            <img
+              className="h-[60vh] rounded-xl"
+              src="https://i.ibb.co.com/f28Z5nf/Humaaan-4.png"
+              alt="Hero"
+            />
+          </div>
         </section>
       </div>
 
