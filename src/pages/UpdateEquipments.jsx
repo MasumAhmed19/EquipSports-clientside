@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2'; 
 import Navbar from '../components/Navbar'; 
 import { useLoaderData, useParams } from 'react-router-dom'; 
+import Footer from '../components/Footer';
  
 const categories = [ 
   'Football', 
@@ -202,6 +203,8 @@ const UpdateEquipments = () => {
           </form> 
         </div> 
       </div> 
+
+      <Footer />
     </section> 
   ); 
 }; 

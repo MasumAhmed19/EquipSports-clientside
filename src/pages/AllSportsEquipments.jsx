@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import EquipCard from "../components/EquipCard";
 import { useState } from "react";
+import Footer from "../components/Footer";
 
 const AllSportsEquipments = () => {
   const eData = useLoaderData();
@@ -15,7 +16,7 @@ const AllSportsEquipments = () => {
         <Navbar />
       </section>
 
-      <section className="g1 min-h-[60vh] flex items-center justify-center">
+      <section className=" min-h-[60vh] flex items-center justify-center">
         <Banner
           title="All Sports Equipment"
           description="Upload the equipment image, provide its name, select a category, set the price, rating, stock, and processing time. Add a description and customization options."
@@ -60,6 +61,7 @@ const AllSportsEquipments = () => {
           </table>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
