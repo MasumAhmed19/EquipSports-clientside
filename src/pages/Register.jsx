@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -57,7 +58,7 @@ const Register = () => {
           .catch((err) => {
             alert(err.message);
           });
-  
+        toast.success("Registration Successful!");
         console.log(cur_user);
       })
       .catch((e) => {

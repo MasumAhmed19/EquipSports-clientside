@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const categories = [
   'Football',
@@ -61,7 +62,7 @@ const AddEquipmentsSection = () => {
     .then(data=>{
       console.log(data)
       if(data.insertedId){
-          Swal.fire("Add Equipment successful!");
+          toast.success("Add Equipment successful!");
           form.reset();
       }
     })
@@ -120,7 +121,7 @@ const AddEquipmentsSection = () => {
                   name="price"
                   required
                   className="input1"
-                  placeholder="99.99"
+                  placeholder="99"
                 />
               </div>
 

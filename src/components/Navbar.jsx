@@ -9,9 +9,6 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const lk = "https://i.ibb.co.com/kxTPBXh/avatarimg.png"
 
-  console.log(user)
-
-
   const link = (
     <>
       <li className="text-black hover:text-p1 duration-500">

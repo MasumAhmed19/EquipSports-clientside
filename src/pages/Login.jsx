@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,13 +29,18 @@ const Login = () => {
       .then((res) => {
         navigate('/');
         setUser(res.user);
-        // TODO: alert for successful login
+        toast.success("Login Successful!");
       })
       .catch((err) => {
         setError({ ...error, login: err.code });
-        alert(err);
+        toast.warn('Invalid email or password');
       });
   };
+
+  const handleGoogleLogin=()=>{
+      loginGoogle()
+      navigate('/');
+  }
 
   return (
     <>
@@ -108,7 +114,7 @@ const Login = () => {
 
             <div className="divider my-6">OR</div>
 
-            <div className="form-control mt-6" onClick={loginGoogle}>
+            <div className="form-control mt-6" onClick={()=>handleGoogleLogin()}>
               <button  className="btn1 flex items-center justify-center gap-3">
                 <FcGoogle className="text-xl" />
                 Continue with Google

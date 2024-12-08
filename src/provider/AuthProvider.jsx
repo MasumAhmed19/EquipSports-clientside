@@ -11,6 +11,8 @@ import {
   updateProfile,
   GoogleAuthProvider
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 export const AuthContext = createContext(null);
@@ -39,13 +41,14 @@ const loginGoogle = () => {
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
-        .then((result) => {
-            const user = result.user;
-            setUser(user);
-        })
-        .catch((error) => {
-            console.error("Google Login Error:", error.message);
-        })
+    .then((result) => {
+        const user = result.user;
+        setUser(user);
+        toast.success("Login Successful!");
+    })
+      .catch((error) => {
+        console.error("Google Login Error:", error.message);
+      })
 
 };
 
@@ -90,6 +93,7 @@ const loginGoogle = () => {
     updateUserProfileData,
     loginGoogle,
     loading
+    
   };
 
   return (
