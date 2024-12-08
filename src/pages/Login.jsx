@@ -38,8 +38,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin=()=>{
-      loginGoogle()
-      navigate('/');
+      loginGoogle();
   }
 
   return (
