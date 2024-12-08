@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const EquipCard = ({ el, idx, equipments, setEquipments}) => {
     const {_id, name, category, price, rating, stock, pTime, imgurl, description, userName, userEmail} = el || {};
+
     
     const handleDelete=(id)=>{
         console.log(id)
@@ -20,14 +21,16 @@ const EquipCard = ({ el, idx, equipments, setEquipments}) => {
     }
 
     return (
-        <tr>
+        <tr className="hover:bg-gray-100">
             <th>{idx+1}</th>
             <td>{name}</td>
             <td>{category}</td>
             <td>{rating}</td>
             <td>${price}</td>
             <td className="flex gap-4 text-xl ">
-                <FaEye className="hover:text-p1 duration-200 cursor-pointer"/>
+                <Link to={`/details/${_id}`}>
+                    <FaEye className="hover:text-p1 duration-200 cursor-pointer"/>
+                </Link>
                 <Link to={`/update/${_id}`}>
                     <FaEdit  className="hover:text-p1 duration-200 cursor-pointer"/>
                 </Link>

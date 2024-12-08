@@ -28,7 +28,10 @@ const AllSportsEquipments = () => {
 
       <section className="container mx-auto py-[50px]">
 
-        <h2 className="p-5">All Sports Equipments: {equipments.length}</h2>
+        <div className="text-center">
+          <h2 className="p-5 text-center text-2xl font-semibold">All Sports Equipments: {equipments?.length}</h2>
+          <p>Enhance your workout with premium fitness gear, including dumbbells, resistance bands, yoga mats, and more for strength, endurance, and flexibility training.</p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-5">
           
@@ -38,7 +41,7 @@ const AllSportsEquipments = () => {
             <table className="table">
               {/* head */}
               <thead>
-                <tr>
+                <tr className="text-base text-black">
                   <th></th>
                   <th>Name</th>
                   <th>Category</th>
@@ -49,7 +52,7 @@ const AllSportsEquipments = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {equipments && equipments.map((el, idx) => (
+                {equipments && equipments?.map((el, idx) => (
                       <EquipCard
                       key={el?._id}
                       el={el}

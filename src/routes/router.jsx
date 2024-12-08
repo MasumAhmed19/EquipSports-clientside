@@ -7,8 +7,7 @@ import MyEquipments from "../pages/MyEquipments";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UpdateEquipments from "../pages/UpdateEquipments";
-import { useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
+import Details from "../pages/Details";
 
 
 const router= createBrowserRouter([
@@ -30,6 +29,11 @@ const router= createBrowserRouter([
         path:'/my-equipments/:email',
         element:<MyEquipments />,
         loader:({params})=>fetch(`http://localhost:8080/my-equipments/${params.email}`)
+    },{
+        path:'/details/:id',
+        element:<Details />,
+        loader:({params})=>fetch(`http://localhost:8080/details/${params.id}`),
+
     },{
         path:'/login',
         element:<Login />
