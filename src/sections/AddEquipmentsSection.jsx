@@ -50,7 +50,7 @@ const AddEquipmentsSection = () => {
     console.log(formdata)
     
     // TODO: Send data to backend
-    fetch('http://localhost:8080/equipments', {
+    fetch('https://equipsport-serverside.vercel.app/equipments', {
         method:'POST',
         headers:{
             'Content-Type':'application/json',

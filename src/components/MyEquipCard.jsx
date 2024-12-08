@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const MyEquipCard = ({ element }) => {
-    const { name, category, price, rating, stock, pTime, imgurl, description } = element || {};
+    const {_id, name, category, price, rating, stock, pTime, imgurl, description } = element || {};
   
     return (
       <div className="bg-white  rounded-lg border-2 border-p1">
@@ -31,9 +33,11 @@ const MyEquipCard = ({ element }) => {
   
           
   
-          <button className="w-full btn1">
-            View Details
-          </button>
+
+            {/* <Link to={`/details/${_id}`} className="btn1">
+              View Details
+            </Link> */}
+
         </div>
       </div>
     );

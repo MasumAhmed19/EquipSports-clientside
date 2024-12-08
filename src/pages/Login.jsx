@@ -9,7 +9,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
-  const {user, setUser, userLogin } = useContext(AuthContext);
+  const {user, setUser, userLogin, loginGoogle } = useContext(AuthContext);
   const [error, setError] = useState({});
 
   const [showPassword, setShowPassword] = useState(false);
@@ -108,8 +108,8 @@ const Login = () => {
 
             <div className="divider my-6">OR</div>
 
-            <div className="form-control mt-6">
-              <button className="btn1 flex items-center justify-center gap-3">
+            <div className="form-control mt-6" onClick={loginGoogle}>
+              <button  className="btn1 flex items-center justify-center gap-3">
                 <FcGoogle className="text-xl" />
                 Continue with Google
               </button>

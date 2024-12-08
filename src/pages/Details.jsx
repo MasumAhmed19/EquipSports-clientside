@@ -8,6 +8,7 @@ const Details = () => {
     const {
         _id, name, category, price, rating, stock, pTime, imgurl, description, userName, userEmail,
     } = useLoaderData(); 
+    console.log(_id)
 
     return (
         <>

@@ -8,7 +8,7 @@ const EquipCard = ({ el, idx, equipments, setEquipments}) => {
     
     const handleDelete=(id)=>{
         console.log(id)
-        fetch(`http://localhost:8080/equipments/${id}`, {
+        fetch(`https://equipsport-serverside.vercel.app/equipments/${id}`, {
             method:'DELETE',
         })
         .then(res=>res.json())

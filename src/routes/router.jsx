@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import UpdateEquipments from "../pages/UpdateEquipments";
 import Details from "../pages/Details";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router= createBrowserRouter([
@@ -17,22 +18,22 @@ const router= createBrowserRouter([
     },{
         path:'/all-sports-equipment',
         element:<AllSportsEquipments />,
-        loader:()=>fetch('http://localhost:8080/equipments'),
+        loader:()=>fetch('https://equipsport-serverside.vercel.app/equipments'),
     },{
         path:'/add-equipment',
-        element:<AddEquipments />
+        element:<PrivateRoutes><AddEquipments /></PrivateRoutes>
     },{
         path:'/update/:id',
-        element:<UpdateEquipments />,
-        loader:({params})=>fetch(`http://localhost:8080/equipments/${params.id}`),
+        element:<PrivateRoutes><UpdateEquipments /></PrivateRoutes>,
+        loader:({params})=>fetch(`https://equipsport-serverside.vercel.app/equipments/${params.id}`),
     },{
         path:'/my-equipments/:email',
-        element:<MyEquipments />,
-        loader:({params})=>fetch(`http://localhost:8080/my-equipments/${params.email}`)
+        element:<PrivateRoutes><MyEquipments /></PrivateRoutes>,
+        loader:({params})=>fetch(`https://equipsport-serverside.vercel.app/my-equipments/${params.email}`)
     },{
         path:'/details/:id',
         element:<Details />,
-        loader:({params})=>fetch(`http://localhost:8080/details/${params.id}`),
+        loader:({params})=>fetch(`https://equipsport-serverside.vercel.app/details/${params.id}`),
 
     },{
         path:'/login',

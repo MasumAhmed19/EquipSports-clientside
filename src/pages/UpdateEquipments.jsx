@@ -30,7 +30,7 @@ const UpdateEquipments = () => {
 
     console.log(updatedData)
 
-    fetch(`http://localhost:8080/equipments/${id}`, {
+    fetch(`https://equipsport-serverside.vercel.app/equipments/${id}`, {
         method:'PATCH',
         headers:{
             "Content-Type":"application/json",
