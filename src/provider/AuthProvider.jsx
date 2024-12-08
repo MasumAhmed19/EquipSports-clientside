@@ -9,16 +9,17 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
-  GoogleAuthProvider
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -34,25 +35,22 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-// Login with Google
-const loginGoogle = () => {
+  // Login with Google
+  const loginGoogle = () => {
     setLoading(true);
 
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
-    .then((result) => {
+      .then((result) => {
         const user = result.user;
         setUser(user);
         toast.success("Login Successful!");
-    })
+      })
       .catch((error) => {
         console.error("Google Login Error:", error.message);
-      })
-
-};
-
-  
+      });
+  };
 
   // update data
   const updateUserProfileData = (updatedData) => {
@@ -69,9 +67,6 @@ const loginGoogle = () => {
     setLoading(true);
     return signOut(auth);
   };
-
-
-
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -92,7 +87,7 @@ const loginGoogle = () => {
     logOut,
     updateUserProfileData,
     loginGoogle,
-    loading
+    loading,
     
   };
 

@@ -1,17 +1,21 @@
-import { useContext } from "react";
-import { MdOutlineLightMode } from "react-icons/md";
+import { useContext, useState } from "react";
 import { RiShoppingBag2Fill } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { FaUserAlt } from "react-icons/fa";
+import { FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut} = useContext(AuthContext);
   const lk = "https://i.ibb.co.com/kxTPBXh/avatarimg.png"
+
+  const {dark, toggleTheme}= useContext(ThemeContext)
+  console.log(dark)
+
 
   const link = (
     <>
-      <li className="text-black hover:text-p1 duration-500">
+      <li className="text-black  hover:text-p1 duration-500">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -58,7 +62,7 @@ const Navbar = () => {
   );
 
   return (
-    <section className="g3">
+    <section className="g3 ">
       <div className="container mx-auto">
         <div className="navbar py-[25px]">
           <div className="navbar-start">
@@ -85,7 +89,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100  rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 {link}
               </ul>
@@ -106,7 +110,12 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-end space-x-2">
-            <MdOutlineLightMode className="cursor-pointer" />
+            {
+              dark ?<FaMoon className="cursor-pointer" onClick={toggleTheme} />
+              : <FaSun className="cursor-pointer" onClick={toggleTheme}/>
+
+            }
+            
             <div className="flex gap-2 items-center justify-center py-4">
               {user ? (
                 <>

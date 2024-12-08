@@ -12,17 +12,13 @@ const AllSportsEquipments = () => {
   const [sortOrder, setSortOrder] = useState('');
 
   const handleSort= (order)=>{
-      console.log(order)
       const temp = [...equipments]; // Clone the array to avoid mutation
-
       if(order==='asc'){
         temp.sort((a,b)=>a?.price - b?.price)
       }else{
         temp.sort((a,b)=>b?.price - a?.price)
       }
-
       setEquipments(temp)
-      
   }
 
   useEffect(()=>{
