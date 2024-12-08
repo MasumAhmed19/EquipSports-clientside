@@ -1,8 +1,42 @@
-# React + Vite
+# **EquiSports: A Sports Equipment Store**  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## **Description**  
+EquiSports is a responsive sports equipment e-commerce platform where customers can explore, and review various sports accessories, including gear and apparel for different sports disciplines. The project includes features like user authentication, product management, and a seamless shopping experience.
 
-Currently, two official plugins are available:
+**Live Site:** [EquiSports](https://equisports-mas.netlify.app/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## **Key Features**  
+- **Authentication:**  
+  - Firebase for user registration and login with email/password and Google OAuth.  
+  - Protected routes for adding and managing products.  
+
+- **Dynamic Routing & Navigation:**  
+  - React Router DOM for seamless navigation.  
+  - Private routes for adding list and add to my-list.  
+
+- **Product Management:**  
+  - Add, update, delete, and view sports equipment details.  
+  - Equipment management restricted to logged-in users.  
+
+- **Product Display:**  
+  - Dynamic sports equipment listing.  
+  - Individual product detail pages with complete information.  
+
+- **User Experience:**  
+  - Responsive design for mobile, tablet, and desktop views.  
+  - Interactive UI with Tailwind CSS and DaisyUI.  
+  - Toast notifications for actions like login, registration, and product updates.  
+
+---
+
+## **Technologies Used**  
+```bash
+> React (Frontend)  
+> JavaScript (ES6+)  
+> Tailwind CSS & DaisyUI (Styling)  
+> Firebase (Authentication)  
+> MongoDB & Express.js (Backend & Database)  
+> React Router DOM (Routing)  
+> React Helmet-Async (SEO)  

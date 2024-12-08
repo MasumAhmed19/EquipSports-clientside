@@ -1,21 +1,21 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { RiShoppingBag2Fill } from "react-icons/ri";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
 import { ThemeContext } from "../context/ThemeProvider";
 
 const Navbar = () => {
-  const { user, logOut} = useContext(AuthContext);
-  const lk = "https://i.ibb.co.com/kxTPBXh/avatarimg.png"
+  const { user, logOut } = useContext(AuthContext);
+  const { dark, toggleTheme } = useContext(ThemeContext);
+  const location = useLocation(); // Get current path
+  const isHomePage = location.pathname === "/";
 
-  const {dark, toggleTheme}= useContext(ThemeContext)
-  console.log(dark)
-
+  const lk = "https://i.ibb.co.com/kxTPBXh/avatarimg.png";
 
   const link = (
     <>
-      <li className="text-black  hover:text-p1 duration-500">
+      <li className="text-black hover:text-p1 duration-500">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -26,7 +26,7 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li className="text-black hover:text-p1  duration-500 ">
+      <li className="text-black hover:text-p1 duration-500">
         <NavLink
           to="/all-sports-equipment"
           className={({ isActive }) =>
@@ -37,7 +37,7 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li className="text-black hover:text-p1  duration-500 ">
+      <li className="text-black hover:text-p1 duration-500">
         <NavLink
           to="/add-equipment"
           className={({ isActive }) =>
@@ -48,7 +48,7 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li className="text-black hover:text-p1 duration-500 ">
+      <li className="text-black hover:text-p1 duration-500">
         <NavLink
           to={`/my-equipments/${user?.email}`}
           className={({ isActive }) =>
@@ -62,7 +62,7 @@ const Navbar = () => {
   );
 
   return (
-    <section className="g3 ">
+    <section className="g3">
       <div className="container mx-auto">
         <div className="navbar py-[25px]">
           <div className="navbar-start">
@@ -89,33 +89,33 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100  rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 {link}
               </ul>
             </div>
-            <div className="">
-              <Link
-                to="/"
-                className="flex items-center gap-2"
-              >
-                <RiShoppingBag2Fill className="text-2xl text-p1" />{" "}
-                <h4 className="text-xl font-semibold">EquiSports</h4>
-              </Link>
-            </div>
+
+            <Link to="/" className="flex items-center gap-2">
+              <RiShoppingBag2Fill className="text-2xl text-p1" />
+              <h4 className="text-xl font-semibold">EquiSports</h4>
+            </Link>
           </div>
 
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu-horizontal space-x-10  px-1">{link}</ul>
+            <ul className="menu-horizontal space-x-10 px-1">{link}</ul>
           </div>
 
           <div className="navbar-end space-x-2">
-            {
-              dark ?<FaMoon className="cursor-pointer" onClick={toggleTheme} />
-              : <FaSun className="cursor-pointer" onClick={toggleTheme}/>
+            {isHomePage && (
+              <>
+                {dark ? (
+                  <FaMoon className="cursor-pointer" onClick={toggleTheme} />
+                ) : (
+                  <FaSun className="cursor-pointer" onClick={toggleTheme} />
+                )}
+              </>
+            )}
 
-            }
-            
             <div className="flex gap-2 items-center justify-center py-4">
               {user ? (
                 <>
@@ -123,7 +123,7 @@ const Navbar = () => {
                     className="tooltip hover:tooltip-open tooltip-left"
                     data-tip={user?.displayName}
                   >
-                    {user && user?.email ? (
+                    {user?.email ? (
                       <img
                         src={user?.photoURL || lk}
                         className="w-[40px] h-[40px] object-cover border-2 border-[#BDED4F] rounded-full"
@@ -133,13 +133,14 @@ const Navbar = () => {
                       <FaUserAlt className="text-md text-[#BDED4F]" />
                     )}
                   </div>
-                  {/* {user && <h2>{user.displayName}</h2>} */}
 
                   <NavLink
                     onClick={() => logOut()}
                     className={({ isActive }) =>
                       `${
-                        isActive ? "underline underline-offset-4 decoration-p2" : ""
+                        isActive
+                          ? "underline underline-offset-4 decoration-p2"
+                          : ""
                       }`
                     }
                   >
@@ -152,7 +153,9 @@ const Navbar = () => {
                     to="/login"
                     className={({ isActive }) =>
                       `${
-                        isActive ? "underline underline-offset-4 decoration-p2" : ""
+                        isActive
+                          ? "underline underline-offset-4 decoration-p2"
+                          : ""
                       }`
                     }
                   >
@@ -162,7 +165,9 @@ const Navbar = () => {
                     to="/register"
                     className={({ isActive }) =>
                       `${
-                        isActive ? "underline underline-offset-4 decoration-p2" : ""
+                        isActive
+                          ? "underline underline-offset-4 decoration-p2"
+                          : ""
                       }`
                     }
                   >
