@@ -87,7 +87,7 @@ const Home = () => {
                   className="img1"
                 />
                 <h2 className="absolute bottom-10 left-10 text-xl font-bold text-white">
-                  Tennis Equipments
+                  Fitness Equipments
                 </h2>
               </div>
 
@@ -99,7 +99,7 @@ const Home = () => {
                   className="img1"
                 />
                 <h2 className="absolute bottom-10 left-10 text-xl font-bold text-white">
-                  Tennis Equipments
+                  Gym Equipments
                 </h2>
               </div>
             </div>
